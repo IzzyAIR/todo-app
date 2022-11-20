@@ -1,0 +1,117 @@
+
+.form__container {
+	border: 1px solid #0971f1;
+	border-radius: 30px;
+	background-color: #fff;
+	height: 240px;
+	padding: 30px;
+	margin-bottom: 10px;
+
+	&:hover {
+		box-shadow: 0 10px 20px #999;
+	}
+
+	.container__top {
+		display: flex;
+		margin-bottom: 20px;
+		justify-content: space-between;
+
+		.input__title {
+			width: 300px;
+			margin-right: 50px;
+		}
+
+		.input__date {
+			width: 200px;
+		}
+
+		.btn__container {
+			display: flex;
+			align-self: center;
+
+			.btn__save_cancel {
+				font-size: 18px;
+			}
+		}
+	}
+
+	.input__text {
+		width: 730px;
+	}
+}
+
+.card__container {
+	height: 240px;
+	margin-bottom: 20px;
+
+	border-radius: 30px;
+	background-color: #fff;
+	padding: 30px;
+
+	color: #444;
+
+	&:hover {
+		box-shadow: 0 10px 20px #999;
+	}
+
+	.container__top {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 60px;
+
+		.title__date {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			font-size: 24px;
+			font-weight: 700;
+			width: 450px;
+		}
+
+		.btn__container {
+			display: flex;
+			align-self: center;
+			justify-content: end;
+
+			.btn__done {
+				font-size: 18px;
+				font-weight: 700;
+			}
+
+			.btn__edit {
+				font-size: 18px;
+				font-weight: 700;
+			}
+
+			.btn__delete {
+				font-size: 18px;
+				font-weight: 700;
+			}
+		}
+	}
+
+	.img__description{
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        .description {
+            margin-top: 10px;
+            margin-right: 70px;
+
+            width: 550px;
+            height: 165px;
+            overflow-y: auto;
+            border-radius: 3px;
+        }
+        .img{
+            border-radius: 5px;
+            height: 180px;
+            cursor: pointer;
+        }
+    }
+}
+
+
+// 7dc775 f15454
