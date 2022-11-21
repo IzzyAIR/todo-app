@@ -155,7 +155,11 @@ const Panel = () => {
 						onChange={onChangeValue}
 					/>
 
-					<input type={'file'} onChange={(e) => onFileChange(e)}></input>
+					<input
+						className={styles.input__file}
+						type={'file'}
+						onChange={(e) => onFileChange(e)}
+					/>
 				</div>
 			</div>
 		</LocalizationProvider>
