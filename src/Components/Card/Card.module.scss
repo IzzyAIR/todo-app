@@ -1,4 +1,3 @@
-
 .form__container {
 	border: 1px solid #0971f1;
 	border-radius: 30px;
@@ -28,15 +27,31 @@
 		.btn__container {
 			display: flex;
 			align-self: center;
+			background-color: #f5f5f5;
+			border-radius: 5px;
+			&:hover{
+				box-shadow: 0 3px 2px #c1c1c1;
 
-			.btn__save_cancel {
-				font-size: 18px;
+			}
+
+			.btn__save {
+				font-size: 40px;
+				font-weight: 700;
+				cursor: pointer;
+				margin: 0 10px;
+
+			}
+			.btn__cancel {
+				font-size: 40px;
+				font-weight: 700;
+				cursor: pointer;
+				margin: 0 10px;
 			}
 		}
 	}
 
 	.input__text {
-		width: 730px;
+		width: 740px;
 	}
 }
 
@@ -74,43 +89,57 @@
 			display: flex;
 			align-self: center;
 			justify-content: end;
+			background-color: #f5f5f5;
+			border-radius: 5px;
+			&:hover{
+				box-shadow: 0 3px 2px #c1c1c1;
+
+			}
 
 			.btn__done {
-				font-size: 18px;
+				font-size: 40px;
 				font-weight: 700;
+				cursor: pointer;
+				margin-right: 10px;
 			}
 
 			.btn__edit {
-				font-size: 18px;
+				font-size: 40px;
+				cursor: pointer;
 				font-weight: 700;
 			}
 
 			.btn__delete {
-				font-size: 18px;
+				margin-left: 10px;
+
+				font-size: 40px;
+				cursor: pointer;
 				font-weight: 700;
 			}
 		}
 	}
 
-	.img__description{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .description {
-            margin-top: 10px;
-            margin-right: 70px;
+	.img__description {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 
-            width: 550px;
-            height: 165px;
-            overflow-y: auto;
-            border-radius: 3px;
-        }
-        .img{
-            border-radius: 5px;
-            height: 180px;
-            cursor: pointer;
-        }
-    }
+		.description {
+			margin-top: 10px;
+			margin-right: 70px;
+
+			width: 550px;
+			height: 165px;
+			overflow-y: auto;
+			border-radius: 3px;
+		}
+
+		.img {
+			border-radius: 5px;
+			height: 180px;
+			cursor: pointer;
+		}
+	}
 }
 
 

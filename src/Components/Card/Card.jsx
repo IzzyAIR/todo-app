@@ -6,7 +6,6 @@ import { doc, deleteDoc, setDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 
 //Импорты MATERIAL UI
-import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import dayjs from 'dayjs';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
@@ -16,6 +15,8 @@ import { TextField } from '@mui/material';
 import CheckBoxTwoToneIcon from '@mui/icons-material/CheckBoxTwoTone';
 import CreateTwoToneIcon from '@mui/icons-material/CreateTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
+import SaveIcon from '@mui/icons-material/Save';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 //Импорты Redux
 import { useDispatch } from 'react-redux';
@@ -121,20 +122,16 @@ const Card = (props) => {
 									color='warning'
 									aria-label=' button group'
 								>
-									<Button
-										className={styles.btn__save_cancel}
+									<SaveIcon
+										className={styles.btn__save}
 										color='success'
 										onClick={saveChanges}
-									>
-										{CheckBoxTwoToneIcon}
-									</Button>
-									<Button
-										className={styles.btn__save_cancel}
+									></SaveIcon>
+									<CancelIcon
+										className={styles.btn__cancel}
 										color='warning'
 										onClick={() => setEditMode(!editMode)}
-									>
-										Esc.
-									</Button>
+									></CancelIcon>
 								</ButtonGroup>
 							</div>
 						</div>
@@ -158,32 +155,25 @@ const Card = (props) => {
 							<div>{changes.date.format(dateFormat)}</div>
 						</div>
 						<div className={styles.btn__container}>
-							<ButtonGroup
-								variant='contained'
-								color='warning'
-								aria-label=' button group'
-							>
-								<Button
+							<ButtonGroup variant='contained' aria-label=' button group'>
+								<CheckBoxTwoToneIcon
+									fontSize='large'
 									className={styles.btn__done}
 									color='success'
 									onClick={onClickDone}
-								>
-									Done.
-								</Button>
-								<Button
+								></CheckBoxTwoToneIcon>
+								<CreateTwoToneIcon
 									className={styles.btn__edit}
 									color='warning'
 									onClick={() => setEditMode(!editMode)}
-								>
-									Edit.
-								</Button>
-								<Button
+								></CreateTwoToneIcon>
+								<DeleteTwoToneIcon
 									className={styles.btn__delete}
 									color='error'
 									onClick={onClickDelete}
 								>
 									Del.
-								</Button>
+								</DeleteTwoToneIcon>
 							</ButtonGroup>
 						</div>
 					</div>
