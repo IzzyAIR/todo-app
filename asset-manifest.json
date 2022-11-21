@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/IzzyAIR.github.io/static/css/main.abe732ae.css",
+    "main.js": "/IzzyAIR.github.io/static/js/main.a9766637.js",
+    "index.html": "/IzzyAIR.github.io/index.html",
+    "main.abe732ae.css.map": "/IzzyAIR.github.io/static/css/main.abe732ae.css.map",
+    "main.a9766637.js.map": "/IzzyAIR.github.io/static/js/main.a9766637.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.abe732ae.css",
+    "static/js/main.a9766637.js"
+  ]
+}
