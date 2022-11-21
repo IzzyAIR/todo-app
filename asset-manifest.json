@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/IzzyAIR.github.io/static/css/main.abe732ae.css",
-    "main.js": "/IzzyAIR.github.io/static/js/main.a9766637.js",
-    "index.html": "/IzzyAIR.github.io/index.html",
-    "main.abe732ae.css.map": "/IzzyAIR.github.io/static/css/main.abe732ae.css.map",
-    "main.a9766637.js.map": "/IzzyAIR.github.io/static/js/main.a9766637.js.map"
+    "main.css": "/todo-app/static/css/main.5c56de49.css",
+    "main.js": "/todo-app/static/js/main.2b26a492.js",
+    "index.html": "/todo-app/index.html",
+    "main.5c56de49.css.map": "/todo-app/static/css/main.5c56de49.css.map",
+    "main.2b26a492.js.map": "/todo-app/static/js/main.2b26a492.js.map"
   },
   "entrypoints": [
-    "static/css/main.abe732ae.css",
-    "static/js/main.a9766637.js"
+    "static/css/main.5c56de49.css",
+    "static/js/main.2b26a492.js"
   ]
 }
