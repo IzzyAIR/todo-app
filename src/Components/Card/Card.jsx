@@ -123,14 +123,14 @@ const Card = (props) => {
 										color='success'
 										onClick={saveChanges}
 									>
-										S.
+										Sav.
 									</Button>
 									<Button
 										className={styles.btn__save_cancel}
 										color='warning'
 										onClick={() => setEditMode(!editMode)}
 									>
-										C.
+										Esc.
 									</Button>
 								</ButtonGroup>
 							</div>
@@ -165,21 +165,21 @@ const Card = (props) => {
 									color='success'
 									onClick={onClickDone}
 								>
-									D.
+									Done.
 								</Button>
 								<Button
 									className={styles.btn__edit}
 									color='warning'
 									onClick={() => setEditMode(!editMode)}
 								>
-									E.
+									Edit.
 								</Button>
 								<Button
 									className={styles.btn__delete}
 									color='error'
 									onClick={onClickDelete}
 								>
-									D.
+									Del.
 								</Button>
 							</ButtonGroup>
 						</div>

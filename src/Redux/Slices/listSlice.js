@@ -16,7 +16,6 @@ const listSlice = createSlice({
          */
         getData(state, action) {
             state.list = action.payload;
-            state.loading = false;
         },
        
         /**
