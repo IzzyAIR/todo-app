@@ -6,9 +6,12 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from './firebase';
 import { getData } from './Redux/Slices/listSlice';
 import { useDispatch } from 'react-redux';
+import { query, orderBy } from 'firebase/firestore';
 
 function App() {
 	const dispatch = useDispatch();
+	const data = collection(db, 'todos');
+	const sortedData = query(data, orderBy('title', 'asc'));
 
 	/**
 	 * При вызове этой функции запрашиваются все данный из FireBase.
@@ -16,14 +19,11 @@ function App() {
 	 * @component
 	 * Функция ничего не возвращает и не принимает
 	 */
-	const getAllData = () => {
-		getDocs(collection(db, 'todos')).then((res) =>
-			dispatch(getData(res.docs.map((el) => ({ ...el.data(), id: el.id })))),
-		);
-	};
 
 	React.useEffect(() => {
-		getAllData();
+		getDocs(sortedData).then((res) =>
+			dispatch(getData(res.docs.map((el) => ({ ...el.data(), id: el.id })))),
+		);
 	}, []);
 
 	return (

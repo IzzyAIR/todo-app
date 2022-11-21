@@ -17,6 +17,7 @@ import { addItem, getData } from '../../Redux/Slices/listSlice';
 import { db, storage } from '../../firebase';
 import { doc, collection, getDocs, setDoc } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { query, orderBy } from 'firebase/firestore';
 
 /**
  * Объект по умолчанию для начального рендера и очистки полей input после добавления новой задачки.
@@ -36,6 +37,9 @@ const Panel = () => {
 	const dateFormat = 'DD.MM.YY hh:mm';
 	const dispatch = useDispatch();
 
+	const data = collection(db, 'todos');
+	const sortedData = query(data, orderBy('title', 'asc'));
+
 	// задаем пустую форму
 	const [newTodo, setNewTodo] = React.useState(default_todo);
 	const [file, setFile] = React.useState(null);
@@ -53,6 +57,13 @@ const Panel = () => {
 			setNewTodo({ ...newTodo, date: event });
 		}
 	};
+	const onFileChange = (event) => {
+		if (event.target.files.length < 1) {
+			console.log(event.target.files.length);
+		}
+
+		setFile(event.target.files[0]);
+	};
 
 	// добавляет задачку
 	/** Функция собирает все необходимые данные и Добавляет задачку в FireBase и Redux.
@@ -68,9 +79,10 @@ const Panel = () => {
 		const formattedItem = { ...newTodo, date: newTodo.date.format(dateFormat), done: false };
 
 		dispatch(addItem(formattedItem));
+		setNewTodo(default_todo);
 
 		// если файл есть то сначала грузим файл а потом уже заливаем задачку
-		if (file) {
+		if (Boolean(file)) {
 			const fileName = (Math.random() + 1).toString(36).substring(7);
 			const fileExtregex = /\.[0-9a-z]+$/i;
 			const fileExtension = file.name.match(fileExtregex)[0];
@@ -84,14 +96,14 @@ const Panel = () => {
 					return setDoc(dataList, { ...formattedItem, fileUrl: url });
 				})
 				.then(() => {
-					getDocs(collection(db, 'todos')).then((res) =>
+					getDocs(sortedData).then((res) =>
 						dispatch(getData(res.docs.map((el) => ({ ...el.data(), id: el.id })))),
 					);
 				});
 		} else {
 			// если файла нет то сразу грузим задачку
-			setDoc(dataList, ...formattedItem).then(() => {
-				getDocs(collection(db, 'todos')).then((res) =>
+			setDoc(dataList, formattedItem).then(() => {
+				getDocs(sortedData).then((res) =>
 					dispatch(getData(res.docs.map((el) => ({ ...el.data(), id: el.id })))),
 				);
 			});
@@ -102,13 +114,7 @@ const Panel = () => {
 	 * @param {*} event
 	 * @returns Просто пропускаем
 	 */
-	const onFileChange = (event) => {
-		if (event.target.files.length < 1) {
-			return;
-		}
 
-		setFile(event.target.files[0]);
-	};
 	return (
 		<LocalizationProvider dateAdapter={AdapterDayjs}>
 			<div className={styles.container__panel}>
@@ -152,14 +158,10 @@ const Panel = () => {
 						label='Description...'
 						multiline
 						rows={5}
-						onChange={onChangeValue}
+						onChange={(e) => onChangeValue(e)}
 					/>
 
-					<input
-						className={styles.input__file}
-						type={'file'}
-						onChange={(e) => onFileChange(e)}
-					/>
+					<input className={styles.input__file} type={'file'} onChange={onFileChange} />
 				</div>
 			</div>
 		</LocalizationProvider>

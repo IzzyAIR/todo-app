@@ -8,11 +8,14 @@ import { db } from '../../firebase';
 //Импорты MATERIAL UI
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { TextField } from '@mui/material';
+import CheckBoxTwoToneIcon from '@mui/icons-material/CheckBoxTwoTone';
+import CreateTwoToneIcon from '@mui/icons-material/CreateTwoTone';
+import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 
 //Импорты Redux
 import { useDispatch } from 'react-redux';
@@ -123,7 +126,7 @@ const Card = (props) => {
 										color='success'
 										onClick={saveChanges}
 									>
-										Sav.
+										{CheckBoxTwoToneIcon}
 									</Button>
 									<Button
 										className={styles.btn__save_cancel}
@@ -191,6 +194,7 @@ const Card = (props) => {
 								className={styles.img}
 								onClick={() => window.open(props.fileUrl, '_blank')}
 								src={props.fileUrl}
+								alt='Your file'
 							/>
 						)}
 					</div>
