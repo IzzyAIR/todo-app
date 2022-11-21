@@ -13,9 +13,13 @@ const CardList = () => {
 
 	return (
 		<div className={styles.container__cardList}>
-			{list.map((obj) => (
-				<Card key={obj.id ? obj.id : 'tempId'} {...obj} />
-			))}
+			{list.map((obj) =>
+				obj.nullElem ? (
+					console.log('Hello', obj.nullElem)
+				) : (
+					<Card key={obj.id ? obj.id : 'tempId'} {...obj} />
+				),
+			)}
 		</div>
 	);
 };
